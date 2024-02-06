@@ -1,0 +1,25 @@
+<% include ./partials/header.ejs %>
+<body>
+    <div class="addpost">
+        <hr class="hrline">
+        <h1>Create Pin</h1>
+        <hr class="hrline">
+    </div>
+    <div class="formt">
+    <form action="/createpost" method="post" enctype="multipart/form-data">
+        <input class="img32" type="file" name="postimage">
+        <h4 class="he4">Title</h4>
+        <input class="inp"  type="title" name="title" placeholder="Add a title">
+        <h4 class="he4">Description</h4>
+        <input class="inp"  type="text" name="Description" placeholder="Add a detailed description">
+        <h4 class="he4">Link</h4>
+        <input class="inp" type="url" name="link" placeholder="Add a link">
+        <h4 class="he4">Board</h4>
+        <input class="inp" type="text" name="Board" placeholder="Choose a board">
+        <h4 class="he4">Tag Topics</h4>
+        <input class="inp" type="text" name="tag" placeholder="Search for a tag">
+        <h10>Don't worry,people won't see your tag</h10>
+        <input class="submit1" type="submit" value="Publish">
+    </form>
+</div>
+<% include ./partials/footer.ejs %>

@@ -1,0 +1,69 @@
+<% include ./partials/header.ejs %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+<body>  
+  <div class="pro">
+    <form id="uploadform" hidden action="/fileupload" method="post" enctype="multipart/form-data" >
+      <input type="file" name="image">
+    </form>
+    <div id="uploadicon" class="profileimage">
+      <img src="/images/uploads/<%= user.profileImage %>" alt="" class="custom-image">
+    </div>
+    <h1 class="int"><%= user.name %></h1>
+    <h3 class="int">@<%= user.username %></h3>
+    <h7 class="int">0 following</h7></br>
+    <button class="btn int">Share</button>
+    <button class="btn int">Edit profile</button>
+  </div>
+  <div class="bottom">
+    <div class="crea">
+    <button class="createpost" > <a href="/add">Create New Post</a></button></div>
+    <div class="headin">
+    <h4 class="cs" >Created</h4>
+    <h4 class="cs">Saved</h4></div>
+    <div id="horizontal-line" class="line"></div>
+  </div>
+  
+  <div class="grid">
+    <div class="grid-item">
+      <a href="/show/posts"><img
+        src="/images/uploads/<%= user?.posts[0]?.image %>" /></a>
+        <a href="/show/posts"></a> <h3>Your Created Pins</h3></a>
+        <h7><%= user.posts.length %> pins </h7>
+    </div>
+
+    
+  </div>
+
+  <script>
+    
+    $(".grid").imagesLoaded(function () {
+    $(".grid").masonry({
+      itemSelector: ".grid-item"
+    });
+  });
+  document.querySelector("#uploadicon").addEventListener("click",function(){
+        document.querySelector("#uploadform input").click();
+      });
+
+  document.querySelector("#uploadform input").addEventListener("change",function(){
+    document.querySelector("#uploadform").submit();
+  })
+
+
+    
+    
+/*function addHorizontalLine(textid){
+    var textElement=document.getElementById(textid);
+    var lineelement=document.getElementById('horizontal-line');
+    var topPosition=textElement.offsetTop + textElement.offsetHeight + 5;
+    lineElement.style.top = topPosition + 'px';
+    lineelement.parentNode.insertBefore(lineelement,textElement.nextSibling);
+
+}*/
+  </script>
+<% include ./partials/footer.ejs %>

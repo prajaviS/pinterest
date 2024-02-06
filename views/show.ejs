@@ -1,0 +1,37 @@
+
+    <% include ./partials/header.ejs %>
+<div class="cont">
+    <div class="column">
+        
+        <% user.posts.forEach(function(elem){ %>
+            <div class="content-wrapper">
+                <div class="image-wrapper">
+                  <div class="overlay">
+                    <div>
+                      <p>My Pin</p>
+                      <button class="save">Save</button>
+                    </div>
+                    <div>
+                      <button class="spheric-button">
+                        twitter.com
+                      </button>
+                      <button class="round-button">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3580/3580382.png" alt="">
+                      </button>
+                      <button class="round-button">
+                        <img src="https://cdn-icons-png.flaticon.com/512/512/512142.png" alt="">
+                      </button>
+                    </div>
+                  </div>
+                  <img src="/images/uploads/<%= elem.image %>" alt="">
+                </div>
+                <p><%= elem.title %></p>
+              </div>
+        
+        
+        <% }) %>
+    </div>
+    </div>
+    
+       
+    <% include ./partials/footer.ejs %>
