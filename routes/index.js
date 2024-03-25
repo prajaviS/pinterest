@@ -47,8 +47,6 @@ router.get('/feed',isLoggedIn,async function(req,res,next){
   res.render('feed',{user,posts});
 });
 
-
-
 router.get('/add',isLoggedIn ,async function(req, res,next) {
   const user=await usermodel.findOne({username: req.session.passport.user});
   res.render('add',{user});
@@ -58,8 +56,8 @@ router.get('/add',isLoggedIn ,async function(req, res,next) {
 router.post('/register',function(req,res){
   var userdata=new usermodel({
     username: req.body.username,
-    name:req.body.name,
-    email:req.body.email,
+    name: req.body.name,
+    email: req.body.email,
     dateOfBirth: new Date(req.body.dateOfBirth) 
   });
   usermodel.register(userdata,req.body.password)
